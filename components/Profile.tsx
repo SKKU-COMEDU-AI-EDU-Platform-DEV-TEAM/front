@@ -38,8 +38,8 @@ export const Main = () => {
             p={5}
             width="500px"
             bg="#F5F5F5"
-            minH={"180"}
             boxShadow={"base"}
+            minH={"180"}
             borderRadius="2xl"
           >
             <Flex>
