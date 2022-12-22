@@ -7,7 +7,9 @@ export default function Layout({ children }: LayoutDefaultProps) {
   return (
     <>
       <Header />
-      <Center pt={55}>{children}</Center>
+      <Center pt={55} minH="90vh" alignItems={"start"}>
+        {children}
+      </Center>
       <Footer />
     </>
   );
