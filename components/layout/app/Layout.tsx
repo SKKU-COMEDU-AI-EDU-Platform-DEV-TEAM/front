@@ -7,7 +7,7 @@ export default function Layout({ children }: LayoutDefaultProps) {
   return (
     <>
       <Header />
-      <Center>{children}</Center>
+      <Center pt={55}>{children}</Center>
       <Footer />
     </>
   );

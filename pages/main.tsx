@@ -3,10 +3,8 @@ import { Dashboard } from "../components/layout/home/Dashboard";
 
 export default function Main() {
   return (
-    <>
-      <Layout />
+    <Layout>
       <Dashboard />
-      <Layout />
-    </>
+    </Layout>
   );
 }

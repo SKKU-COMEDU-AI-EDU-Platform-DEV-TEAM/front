@@ -4,10 +4,8 @@ import { Login } from "../components/layout/login/Login";
 import { Signup } from "../components/layout/login/Signup";
 export default function Home() {
   return (
-    <>
-      <EnterLayout>
-        <Signup />
-      </EnterLayout>
-    </>
+    <EnterLayout>
+      <Signup />
+    </EnterLayout>
   );
 }
