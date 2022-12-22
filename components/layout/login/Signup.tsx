@@ -11,9 +11,13 @@ import {
   Stack,
   Text
 } from "@chakra-ui/react";
+import { useRouter } from "next/router";
 import { useEffect, useRef, useState } from "react";
+import { checkIsValid } from "../../../config";
 
 export const Signup = () => {
+  const router = useRouter();
+
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [pw, setPw] = useState("");
@@ -28,40 +32,48 @@ export const Signup = () => {
     "^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[@$!%*#?&])[A-Za-z0-9@$!%*#?&]{6,}$"
   );
 
-  const handleEmailInputChange = (e: any) => {
+  const mbtiArr = [
+    "ISTJ",
+    "ISFJ",
+    "INFJ",
+    "INTJ",
+    "ISTP",
+    "ISFP",
+    "INFP",
+    "INTP",
+    "ESTJ",
+    "ESFJ",
+    "ENFJ",
+    "ENTJ",
+    "ESTP",
+    "ESFP",
+    "ENFP",
+    "ENTP"
+  ];
+  const handleEmailInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;
     setEmail(inputValue);
-    if (emailReg.test(inputValue)) {
-      setEmailInvalid(false);
-    } else {
-      setEmailInvalid(true);
-    }
-  };
-  const handlePwInputChange = (e: any) => {
-    const inputValue = e.target.value;
-    setPw(inputValue);
-    if (pwReg.test(inputValue)) {
-      setPwInvalid(false);
-    } else {
-      setPwInvalid(true);
-    }
-    console.log(inputValue);
+    setEmailInvalid(checkIsValid(emailReg, inputValue));
   };
 
+  const handlePwInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const inputValue = e.target.value;
+    setPw(inputValue);
+    setPwInvalid(checkIsValid(pwReg, pw));
+  };
+  const handleSignupOnClick = () => {
+    if (
+      isConfirmPwInvalid ||
+      checkIsValid(emailReg, email) ||
+      checkIsValid(pwReg, pw)
+    ) {
+      return;
+    }
+    //signup
+    router.push("/");
+  };
   return (
-    <Box
-      position="fixed"
-      top="50%"
-      left="50%"
-      transform={"translate(-50%,-50%)"}
-      bg="#ffffff"
-      boxShadow={"base"}
-      w="xl"
-      borderWidth="1px"
-      borderRadius="2xl"
-      p={16}
-      pt={12}
-    >
+    <>
       <Stack direction="row" justifyContent={"space-between"} mb={10}>
         <Image
           w={"80%"}
@@ -135,22 +147,9 @@ export const Signup = () => {
           borderColor={"rgb(144, 187, 144)"}
           placeholder="ISTJ"
         >
-          <option>ISTJ</option>
-          <option>ISFJ</option>
-          <option>INFJ</option>
-          <option>INTJ</option>
-          <option>ISTP</option>
-          <option>ISFP</option>
-          <option>INFP</option>
-          <option>INTP</option>
-          <option>ESTJ</option>
-          <option>ESFJ</option>
-          <option>ENFJ</option>
-          <option>ENTJ</option>
-          <option>ESTP</option>
-          <option>ESFP</option>
-          <option>ENFP</option>
-          <option>ENTP</option>
+          {mbtiArr.map((mbti) => (
+            <option key={mbti}>{mbti}</option>
+          ))}
         </Select>
       </FormControl>
       <Button
@@ -158,9 +157,10 @@ export const Signup = () => {
         borderRadius={"2xl"}
         bgColor=" rgb(144, 187, 144)"
         _hover={{ bgColor: "green" }}
+        onClick={handleSignupOnClick}
       >
-        Done
+        Sign Up
       </Button>
-    </Box>
+    </>
   );
 };

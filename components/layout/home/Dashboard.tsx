@@ -9,21 +9,22 @@ import {
   Text
 } from "@chakra-ui/react";
 import { useRecoilValue } from "recoil";
-import { pointState, typeSelector, userState } from "../recoil";
+import { pointState, typeSelector, userState } from "../../../recoil";
 import { GiRoundStar } from "react-icons/gi";
 import { TbDiamonds } from "react-icons/tb";
 
-export const Main = () => {
+export const Dashboard = () => {
   const user = useRecoilValue(userState);
   const type = useRecoilValue(typeSelector);
   const point = useRecoilValue(pointState);
   return (
-    <Center>
+    <>
       <Stack
         direction={"column"}
         w={{ base: "full", xl: "container.xl" }}
         justifyContent={"space-between"}
         verticalAlign="center"
+        h="600px"
       >
         <Stack
           direction={"row"}
@@ -31,7 +32,6 @@ export const Main = () => {
           w={{ base: "full", xl: "container.xl" }}
           justifyContent="center"
           p={30}
-          pt={100}
           verticalAlign={"center"}
         >
           <Box
@@ -128,6 +128,6 @@ export const Main = () => {
         </Stack>
         {/* <Box width="100px" bg="#d1d1d1" h={"100px"}></Box> */}
       </Stack>
-    </Center>
+    </>
   );
 };

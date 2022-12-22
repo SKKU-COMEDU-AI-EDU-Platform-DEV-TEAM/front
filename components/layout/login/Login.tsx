@@ -11,51 +11,47 @@ import {
   Stack,
   Text
 } from "@chakra-ui/react";
+import { useRouter } from "next/router";
 import { useEffect, useRef, useState } from "react";
-import { LoginValue } from "../types";
+import { checkIsValid } from "../../../config";
 
 export const Login = () => {
+  const router = useRouter();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isInvalid, setInvalid] = useState(false);
+
+  const [isEmailInvalid, setEmailInvalid] = useState(false);
+
   const emailReg = new RegExp("^[a-zA-Z0-9]+@[a-zA-Z0-9.]+$");
-  const handleEmailInputChange = (e: any) => {
+
+  const handleEmailInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;
     setEmail(inputValue);
-    if (emailReg.test(inputValue)) {
-      setInvalid(false);
-    } else {
-      setInvalid(true);
-    }
+    setEmailInvalid(checkIsValid(emailReg, inputValue));
   };
+
+  const handleLoginOnClick = () => {
+    if (checkIsValid(emailReg, email)) {
+      return;
+    }
+    //login
+    console.log(isEmailInvalid);
+    router.push("/main");
+  };
+
   return (
-    <Box
-      position="fixed"
-      top="50%"
-      left="50%"
-      transform={"translate(-50%,-50%)"}
-      bg="#ffffff"
-      boxShadow={"base"}
-      w="xl"
-      borderWidth="1px"
-      borderRadius="2xl"
-      p={16}
-    >
+    <>
       <Stack direction="row" justifyContent={"space-between"} mb={10}>
         <Image
           w={"80%"}
           objectFit="contain"
           src="./DIHYEOKGONG.png"
-          alt="Dan Abramov"
+          alt="DIHYEOKGONG"
         />
-        <Image
-          w={"10%"}
-          objectFit="contain"
-          src="./SKKU.png"
-          alt="Dan Abramov"
-        />
+        <Image w={"10%"} objectFit="contain" src="./SKKU.png" alt="SKKU" />
       </Stack>
-      <FormControl mb={8} isRequired isInvalid={isInvalid}>
+      <FormControl mb={8} isRequired isInvalid={isEmailInvalid}>
         <FormLabel fontSize={16}>Email</FormLabel>
         <Input
           type="email"
@@ -65,7 +61,7 @@ export const Login = () => {
           borderWidth={"2px"}
           borderColor={"rgb(144, 187, 144)"}
         />
-        {isInvalid && (
+        {isEmailInvalid && (
           <FormErrorMessage>Email address is invalid.</FormErrorMessage>
         )}
       </FormControl>
@@ -85,13 +81,20 @@ export const Login = () => {
         borderRadius={"2xl"}
         bgColor=" rgb(144, 187, 144)"
         _hover={{ bgColor: "green" }}
+        onClick={handleLoginOnClick}
         mb={5}
       >
         Login
       </Button>
-      <Button height="40px" width="100%" borderRadius={"2xl"} bgColor="#DD9D9">
+      <Button
+        height="40px"
+        width="100%"
+        borderRadius={"2xl"}
+        bgColor="#DD9D9"
+        onClick={() => router.push("/signup")}
+      >
         Sign Up
       </Button>
-    </Box>
+    </>
   );
 };

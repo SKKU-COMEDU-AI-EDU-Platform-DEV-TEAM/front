@@ -9,11 +9,11 @@ import {
 } from "@chakra-ui/react";
 import { GoPencil } from "react-icons/go";
 import { useRecoilState } from "recoil";
-import { userState } from "../recoil";
+import { userState } from "../../../recoil";
 import { Avatar, AvatarBadge, AvatarGroup } from "@chakra-ui/react";
 import NextLink from "next/link";
 
-export const Header = () => {
+export default function Header() {
   const [user, setUser] = useRecoilState(userState);
   return (
     <Center
@@ -58,4 +58,4 @@ export const Header = () => {
       </Stack>
     </Center>
   );
-};
+}
