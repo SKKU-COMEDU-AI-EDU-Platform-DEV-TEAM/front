@@ -23,7 +23,7 @@ export default function handler(
       {
         subject: "강의 제목2",
         contents: {
-          video: ["/videolink3", "/videolink4"],
+          video: ["/videolink3", "/videolink4", "/videolink5"],
           quiz: "/quizlink2",
           metaverse: "/metaverselink2"
         },

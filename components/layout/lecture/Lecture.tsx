@@ -1,7 +1,6 @@
-import { Center, Stack } from "@chakra-ui/react";
+import { Box, Center, Stack, Text } from "@chakra-ui/react";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useQuery } from "react-query";
 import { Id, weekData } from "../../../types";
 import { WeekLecture } from "./WeekLecture";
 
@@ -24,8 +23,20 @@ export default function Lecture() {
       w={{ base: "full", xl: "container.xl" }}
       justifyContent={"space-between"}
       verticalAlign="center"
-      pt="50"
+      pt={5}
+      pb={10}
     >
+      <Box m={2}>
+        <Text
+          width="fit-content"
+          p={1}
+          fontWeight="bold"
+          borderBottomWidth="2px"
+          borderBottomColor="rgb(144, 187, 144)"
+        >
+          데이터분석기초 학습 콘텐츠
+        </Text>
+      </Box>
       {weekData.map((data, i) => (
         <WeekLecture
           key={i}

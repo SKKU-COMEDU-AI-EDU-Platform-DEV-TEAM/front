@@ -3,10 +3,8 @@ import Lecture from "../components/layout/lecture/Lecture";
 
 export default function Course() {
   return (
-    <>
-      <Layout />
+    <Layout>
       <Lecture />
-      <Layout />
-    </>
+    </Layout>
   );
 }

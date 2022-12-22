@@ -29,3 +29,9 @@ export interface weekData {
 export interface Id {
   id: number;
 }
+
+export interface Content extends Id {
+  week: number;
+  type: string;
+  link: string;
+}
