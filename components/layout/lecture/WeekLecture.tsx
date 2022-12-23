@@ -1,9 +1,9 @@
 import { Box, Progress, Stack, StackDivider, Text } from "@chakra-ui/react";
 import { useState } from "react";
-import { Id, weekData } from "../../../types";
+import { Id, WeekData } from "../../../types";
 import { WeekContent } from "./WeekContent";
 
-export const WeekLecture = (props: Id & weekData) => {
+export const WeekLecture = (props: Id & WeekData) => {
   const { id, subject, contents, isdone } = props;
   const numContents: number = 1 + contents.video.length;
   const numVideoDone: number = isdone.video.filter((done) => done === 1).length;

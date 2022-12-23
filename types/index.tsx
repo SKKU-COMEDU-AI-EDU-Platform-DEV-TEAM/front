@@ -17,7 +17,7 @@ export interface LayoutDefaultProps {
   children?: React.ReactElement;
 }
 
-export interface weekData {
+export interface WeekData {
   subject: string;
   contents: {
     video: string[];

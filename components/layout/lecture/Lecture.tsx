@@ -1,12 +1,12 @@
 import { Box, Center, Stack, Text } from "@chakra-ui/react";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Id, weekData } from "../../../types";
+import { Id, WeekData } from "../../../types";
 import { WeekLecture } from "./WeekLecture";
 
 export default function Lecture() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [weekData, setWeekData] = useState<(Id & weekData)[]>([]);
+  const [weekData, setWeekData] = useState<(Id & WeekData)[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {

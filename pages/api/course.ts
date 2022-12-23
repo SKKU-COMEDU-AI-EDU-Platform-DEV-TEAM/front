@@ -1,13 +1,13 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
-import { weekData } from "../../types";
+import { WeekData } from "../../types";
 
-type sendData = {
-  data: weekData[];
+type sendWeekData = {
+  data: WeekData[];
 };
 export default function handler(
   req: NextApiRequest,
-  res: NextApiResponse<sendData>
+  res: NextApiResponse<sendWeekData>
 ) {
   return res.send({
     data: [
