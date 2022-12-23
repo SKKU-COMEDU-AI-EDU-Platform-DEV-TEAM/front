@@ -1,6 +1,6 @@
 import { Box, Stack } from "@chakra-ui/react";
 import { CourseDescription } from "./CourseDescription";
-import { TypeDescription } from "./TypeDescription";
+import { TypeDescriptionComponent } from "./TypeDescriptionComponent";
 import { UserDescription } from "./UserDescription";
 import { QuizGraph } from "./QuizGraph";
 import { useEffect, useState } from "react";
@@ -28,7 +28,7 @@ export const Main = () => {
     >
       <Stack direction={"row"} justifyContent="space-between" pt={30}>
         <UserDescription />
-        <TypeDescription />
+        <TypeDescriptionComponent />
         <CourseDescription />
       </Stack>
       <QuizGraph />

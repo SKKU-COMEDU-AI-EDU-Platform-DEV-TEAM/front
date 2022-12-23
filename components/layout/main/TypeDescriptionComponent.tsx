@@ -1,9 +1,10 @@
 import { Box, Text } from "@chakra-ui/react";
 import { useRecoilValue } from "recoil";
 import { typeSelector } from "../../../recoil";
+import { TypeDescription } from "../../../types";
 
-export const TypeDescription = () => {
-  const type = useRecoilValue(typeSelector);
+export const TypeDescriptionComponent = () => {
+  const type = useRecoilValue<TypeDescription>(typeSelector);
   return (
     <Box
       verticalAlign="space-between"
