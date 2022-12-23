@@ -15,7 +15,7 @@ export default function TestLayout({ children }: LayoutDefaultProps) {
       borderRadius="2xl"
       p={10}
     >
-      <Stack direction="row" justifyContent={"right"} mb={10}>
+      <Stack direction="row" justifyContent={"right"}>
         <Text
           w="90%"
           fontWeight="bold"
@@ -23,7 +23,7 @@ export default function TestLayout({ children }: LayoutDefaultProps) {
           mt={4}
           textAlign={"center"}
         >
-          학습자 성향 분석을 위한 설문
+          학습 성향 분석을 위한 설문
         </Text>
         <Image w={"7%"} objectFit="contain" src="/SKKU.png" alt="SKKU" />
       </Stack>

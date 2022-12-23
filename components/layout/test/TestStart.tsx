@@ -6,7 +6,7 @@ export const TestStart = () => {
 
   return (
     <>
-      <Container maxW="95%" minH={150} fontSize={23} centerContent>
+      <Container maxW="95%" minH={150} fontSize={23} centerContent mt={10}>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut ipsa sit ad,
         possimus sunt quidem a omnis magni beatae! Quo, consequatur. Esse quidem
         quam in quia! Nisi pariatur sequi illum?
