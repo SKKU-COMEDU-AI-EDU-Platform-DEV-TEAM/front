@@ -1,6 +1,7 @@
 export interface User {
   userName: string;
   userId: number;
+  userEmail: string;
   type: number;
 }
 export interface Point {

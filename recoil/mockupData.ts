@@ -1,6 +1,7 @@
 export const mockupUser = {
   userName: "userName",
   userId: 1,
+  userEmail: "nimod1234@g.skku.edu",
   type: 1
 };
 

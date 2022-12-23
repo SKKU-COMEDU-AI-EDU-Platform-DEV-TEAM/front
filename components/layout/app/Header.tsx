@@ -4,17 +4,30 @@ import {
   Flex,
   Icon,
   Link,
+  Popover,
+  PopoverArrow,
+  PopoverBody,
+  PopoverCloseButton,
+  PopoverContent,
+  PopoverFooter,
+  PopoverHeader,
+  PopoverTrigger,
+  Portal,
   Stack,
   Text
 } from "@chakra-ui/react";
 import { GoPencil } from "react-icons/go";
-import { useRecoilState } from "recoil";
-import { userState } from "../../../recoil";
-import { Avatar, AvatarBadge, AvatarGroup } from "@chakra-ui/react";
+import { useRecoilValue } from "recoil";
+import { typeSelector, userState } from "../../../recoil";
+import { Avatar } from "@chakra-ui/react";
 import NextLink from "next/link";
+import { useState } from "react";
+import { useRouter } from "next/router";
 
 export default function Header() {
-  const [user, setUser] = useRecoilState(userState);
+  const user = useRecoilValue(userState);
+  const type = useRecoilValue(typeSelector);
+  const router = useRouter();
   return (
     <Center
       as="nav"
@@ -32,27 +45,69 @@ export default function Header() {
         justifyContent={"space-between"}
         verticalAlign="center"
       >
-        <Center>
+        <Button onClick={() => router.push("/main")} variant="link">
           <Icon as={GoPencil} fontSize={"2xl"} color="gray.500" mr="3" />
           <Text fontSize={"2xl"} fontWeight={600} color="gray.500">
             SKK E<span id="type">:D</span>U
           </Text>
-        </Center>
+        </Button>
         <Center>
           <Stack direction={{ base: "row", sm: "row" }} align="start">
-            <Link as={NextLink} href="/">
-              <Button
-                colorScheme="teal"
-                variant="link"
-                p={[4]}
-                color="rgb(144, 187, 144)"
-              >
-                <Avatar size="xs" bg="gray.500" mr={"2"} />
-                <Text fontSize={"md"} fontWeight={600} color="gray.500">
-                  {user.userName}
-                </Text>
-              </Button>
-            </Link>
+            <Popover>
+              <PopoverTrigger>
+                <Button
+                  colorScheme="teal"
+                  variant="link"
+                  p={[4]}
+                  color="rgb(144, 187, 144)"
+                >
+                  <Avatar size="xs" bg="gray.500" mr={"2"} />
+                  <Text fontSize={"md"} fontWeight={600} color="gray.500">
+                    {user.userName}
+                  </Text>
+                </Button>
+              </PopoverTrigger>
+              <Portal>
+                <PopoverContent>
+                  <PopoverArrow />
+                  <PopoverHeader fontWeight={"bold"}>회원정보</PopoverHeader>
+                  <PopoverCloseButton />
+                  <PopoverBody>
+                    <Text
+                      fontWeight={"bold"}
+                      fontSize={15}
+                      color=" rgb(144, 187, 144)"
+                    >
+                      {type.type} 유형
+                    </Text>
+                    <Text fontWeight={"bold"} fontSize={15}>
+                      {user.userEmail}
+                    </Text>
+                  </PopoverBody>
+                  <PopoverFooter
+                    display={"flex"}
+                    justifyContent={"space-between"}
+                  >
+                    <Button
+                      colorScheme="facebook"
+                      fontSize={13}
+                      variant="link"
+                      onClick={() => router.push("/text")}
+                    >
+                      학습유형검사 다시하기
+                    </Button>
+                    <Button
+                      colorScheme="facebook"
+                      fontSize={13}
+                      variant="link"
+                      onClick={() => router.push("/profile")}
+                    >
+                      회원정보수정
+                    </Button>
+                  </PopoverFooter>
+                </PopoverContent>
+              </Portal>
+            </Popover>
           </Stack>
         </Center>
       </Stack>
