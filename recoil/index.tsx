@@ -23,7 +23,14 @@ export const typeSelector = selector({
         description:
           "learner Type Description learner Type Description learner Type Description"
       };
-    } else {
+    } else if (user.type == 2) {
+      return {
+        type: "learnerType2",
+        description:
+          "learner Type Description learner Type Description learner Type Description"
+      };
+    }
+    {
       return {
         type: "learnerType",
         description:
