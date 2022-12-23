@@ -3,10 +3,11 @@ import { useRecoilValue } from "recoil";
 import { pointState, userState } from "../../../recoil";
 import { GiRoundStar } from "react-icons/gi";
 import { TbDiamonds } from "react-icons/tb";
+import { Point, User } from "../../../types";
 
 export const UserDescription = () => {
-  const user = useRecoilValue(userState);
-  const point = useRecoilValue(pointState);
+  const user = useRecoilValue<User>(userState);
+  const point = useRecoilValue<Point>(pointState);
 
   return (
     <Box p={5} bg="#F5F5F5" boxShadow={"base"} borderRadius="2xl" pr="10">

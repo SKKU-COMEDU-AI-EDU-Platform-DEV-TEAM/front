@@ -4,6 +4,15 @@ export interface User {
   userEmail: string;
   type: number;
 }
+
+export interface Type {
+  type: number;
+}
+export interface TypeDescription {
+  type: string;
+  description: string;
+}
+
 export interface Point {
   level: number;
   expValue: number;
