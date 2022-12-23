@@ -11,9 +11,11 @@ export default function TestLayout({ children }: LayoutDefaultProps) {
       bg="#ffffff"
       boxShadow={"base"}
       w="3xl"
+      maxH="2xl"
       borderWidth="1px"
       borderRadius="2xl"
       p={10}
+      overflow="scroll"
     >
       <Stack direction="row" justifyContent={"right"}>
         <Text
