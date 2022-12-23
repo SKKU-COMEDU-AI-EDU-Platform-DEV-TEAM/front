@@ -3,7 +3,7 @@ import { Stack } from "@chakra-ui/react";
 import { TypeDescription } from "./TypeDescription";
 import { UserDescription } from "./UserDescription";
 
-export const Dashboard = () => {
+export const Main = () => {
   return (
     <Stack
       direction={"column"}

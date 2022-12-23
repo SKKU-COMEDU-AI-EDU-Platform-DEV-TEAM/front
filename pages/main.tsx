@@ -1,10 +1,10 @@
 import Layout from "../components/layout/app/Layout";
-import { Dashboard } from "../components/layout/home/Dashboard";
+import { Main } from "../components/layout/main/Main";
 
-export default function Main() {
+export default function MainPage() {
   return (
     <Layout>
-      <Dashboard />
+      <Main />
     </Layout>
   );
 }
