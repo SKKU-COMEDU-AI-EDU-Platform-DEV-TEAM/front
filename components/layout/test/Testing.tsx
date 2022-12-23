@@ -31,7 +31,7 @@ export const Testing = () => {
       alert("답변하지 않은 문항이 있습니다!");
       return;
     }
-    const response = axios.post("../api/test", { result: value });
+    const response = (await axios.post("../api/test", { result: value })).data;
     //error handling
     router.push("/test/end");
   }
