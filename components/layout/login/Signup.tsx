@@ -3,7 +3,6 @@ import {
   Button,
   FormControl,
   FormErrorMessage,
-  FormHelperText,
   FormLabel,
   Image,
   Input,
@@ -11,6 +10,7 @@ import {
   Stack,
   Text
 } from "@chakra-ui/react";
+import axios from "axios";
 import { useRouter } from "next/router";
 import { useEffect, useRef, useState } from "react";
 import { checkIsValid } from "../../../config";
@@ -18,14 +18,14 @@ import { checkIsValid } from "../../../config";
 export const Signup = () => {
   const router = useRouter();
 
-  const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
-  const [pw, setPw] = useState("");
-  const [confirmPw, setConfirmPw] = useState("");
-
-  const [isEmailInvalid, setEmailInvalid] = useState(false);
-  const [isPwInvalid, setPwInvalid] = useState(false);
-  const isConfirmPwInvalid = pw != confirmPw;
+  const [email, setEmail] = useState<string>("");
+  const [name, setName] = useState<string>("");
+  const [pw, setPw] = useState<string>("");
+  const [confirmPw, setConfirmPw] = useState<string>("");
+  const [mbti, setMBTI] = useState<string>("ISTJ");
+  const [isEmailInvalid, setEmailInvalid] = useState<boolean>(false);
+  const [isPwInvalid, setPwInvalid] = useState<boolean>(false);
+  const isConfirmPwInvalid: boolean = pw != confirmPw;
 
   const emailReg = new RegExp("^[a-zA-Z0-9]+@[a-zA-Z0-9.]+$");
   const pwReg = new RegExp(
@@ -61,7 +61,7 @@ export const Signup = () => {
     setPw(inputValue);
     setPwInvalid(checkIsValid(pwReg, pw));
   };
-  const handleSignupOnClick = () => {
+  const handleSignupOnClick = async () => {
     if (
       isConfirmPwInvalid ||
       checkIsValid(emailReg, email) ||
@@ -69,19 +69,33 @@ export const Signup = () => {
     ) {
       return;
     }
-    //signup
+    console.log({
+      email: email,
+      pw: pw,
+      name: name,
+      mbti: mbti
+    });
+    const response = (
+      await axios.post("api/signup", {
+        email: email,
+        pw: pw,
+        name: name,
+        mbti: mbti
+      })
+    ).data;
+    //error handling
     router.push("/");
   };
   return (
     <>
       <Stack direction="row" justifyContent={"space-between"} mb={10}>
         <Image
+          alt="DIHYEOKGONG"
           w={"80%"}
           objectFit="contain"
           src="./DIHYEOKGONG.png"
-          alt="site-logo"
         />
-        <Image w={"10%"} objectFit="contain" src="./SKKU.png" alt="skku-logo" />
+        <Image alt="SKKU" w={"10%"} objectFit="contain" src="./SKKU.png" />
       </Stack>
       <FormControl mb={1} isRequired isInvalid={isEmailInvalid}>
         <FormLabel fontSize={16}>Email</FormLabel>
@@ -146,9 +160,12 @@ export const Signup = () => {
           borderWidth={"2px"}
           borderColor={"rgb(144, 187, 144)"}
           placeholder="ISTJ"
+          onChange={(e) => setMBTI(e.target.value)}
         >
           {mbtiArr.map((mbti) => (
-            <option key={mbti}>{mbti}</option>
+            <option aria-label={mbti} key={mbti}>
+              {mbti}
+            </option>
           ))}
         </Select>
       </FormControl>
