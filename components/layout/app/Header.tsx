@@ -92,7 +92,7 @@ export default function Header() {
                       colorScheme="facebook"
                       fontSize={13}
                       variant="link"
-                      onClick={() => router.push("/text")}
+                      onClick={() => router.push("/test")}
                     >
                       학습유형검사 다시하기
                     </Button>
