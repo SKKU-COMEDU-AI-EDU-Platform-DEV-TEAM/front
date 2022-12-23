@@ -2,9 +2,10 @@ import { Box, Stack } from "@chakra-ui/react";
 import { CourseDescription } from "./CourseDescription";
 import { TypeDescription } from "./TypeDescription";
 import { UserDescription } from "./UserDescription";
-import axios from "axios";
+import { QuizGraph } from "./QuizGraph";
 import { useEffect, useState } from "react";
 import { Id, WeekData } from "../../../types";
+import axios from "axios";
 
 export const Main = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -18,20 +19,19 @@ export const Main = () => {
     };
     fetchData();
   }, []);
-
   return (
     <Stack
       direction={"column"}
       w={{ base: "full", xl: "container.xl" }}
       h="600px"
-      spacing={10}
+      spacing={12}
     >
       <Stack direction={"row"} justifyContent="space-between" pt={30}>
         <UserDescription />
         <TypeDescription />
         <CourseDescription />
       </Stack>
-      <Box bg="#F5F5F5" h={"100px"} ml={30}></Box>
+      <QuizGraph />
     </Stack>
   );
 };

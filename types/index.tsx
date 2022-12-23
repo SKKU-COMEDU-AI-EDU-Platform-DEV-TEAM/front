@@ -27,6 +27,10 @@ export interface WeekData {
   isdone: { video: number[]; quiz: number };
 }
 
+export interface ScoreList {
+  score: number[];
+}
+
 export interface QuestionList {
   questions: string[];
 }
@@ -39,4 +43,20 @@ export interface Content extends Id {
   week: number;
   type: string;
   link: string;
+}
+
+export interface LineProps {
+  data: number[];
+  color: string;
+}
+
+export interface ChartProps {
+  width: number;
+  height: number;
+  margin: {
+    top: number;
+    right: number;
+    bottom: number;
+    left: number;
+  };
 }
