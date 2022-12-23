@@ -27,6 +27,10 @@ export interface WeekData {
   isdone: { video: number[]; quiz: number };
 }
 
+export interface QuestionList {
+  questions: string[];
+}
+
 export interface Id {
   id: number;
 }
