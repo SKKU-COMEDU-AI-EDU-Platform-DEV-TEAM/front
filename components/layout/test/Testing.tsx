@@ -23,6 +23,18 @@ export const Testing = () => {
     copyArray[question] = Number(answer);
     setValue(copyArray);
   }
+  async function handleOnClick() {
+    const filtered = value.filter(function (x) {
+      return x !== undefined;
+    });
+    if (filtered.length != qList.length) {
+      alert("답변하지 않은 문항이 있습니다!");
+      return;
+    }
+    const response = axios.post("../api/test", { result: value });
+    //error handling
+    router.push("/test/end");
+  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -71,7 +83,7 @@ export const Testing = () => {
           width="30%"
           borderRadius={"2xl"}
           bgColor="rgb(144, 187, 144)"
-          onClick={() => router.push("/test/end")}
+          onClick={handleOnClick}
         >
           제출하기
         </Button>
