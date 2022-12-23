@@ -17,9 +17,6 @@ export const TestStart = () => {
           width="30%"
           borderRadius={"2xl"}
           bgColor="rgb(144, 187, 144)"
-          // alignContent={"center"}
-          // alignItems={"center"}
-          // verticalAlign={"center"}
           onClick={() => router.push("/test/ing")}
         >
           설문조사 시작
