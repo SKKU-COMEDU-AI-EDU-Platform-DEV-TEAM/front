@@ -46,10 +46,10 @@ export const Login = () => {
         <Image
           w={"80%"}
           objectFit="contain"
-          src="./DIHYEOKGONG.png"
+          src="/DIHYEOKGONG.png"
           alt="DIHYEOKGONG"
         />
-        <Image w={"10%"} objectFit="contain" src="./SKKU.png" alt="SKKU" />
+        <Image w={"10%"} objectFit="contain" src="/SKKU.png" alt="SKKU" />
       </Stack>
       <FormControl mb={8} isRequired isInvalid={isEmailInvalid}>
         <FormLabel fontSize={16}>Email</FormLabel>
