@@ -1,29 +1,37 @@
-import { Stack } from "@chakra-ui/react";
-
+import { Box, Stack } from "@chakra-ui/react";
+import { CourseDescription } from "./CourseDescription";
 import { TypeDescription } from "./TypeDescription";
 import { UserDescription } from "./UserDescription";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { Id, WeekData } from "../../../types";
 
 export const Main = () => {
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [weekData, setWeekData] = useState<(Id & WeekData)[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = (await axios.get("api/course")).data;
+      setWeekData(response.data);
+      setIsLoading(false);
+    };
+    fetchData();
+  }, []);
+
   return (
     <Stack
       direction={"column"}
       w={{ base: "full", xl: "container.xl" }}
-      justifyContent={"space-between"}
-      verticalAlign="center"
       h="600px"
+      spacing={10}
     >
-      <Stack
-        direction={"row"}
-        spacing="100"
-        w={{ base: "full", xl: "container.xl" }}
-        justifyContent="center"
-        p={30}
-        verticalAlign={"center"}
-      >
+      <Stack direction={"row"} justifyContent="space-between" pt={30}>
         <UserDescription />
         <TypeDescription />
+        <CourseDescription />
       </Stack>
-      {/* <Box width="100px" bg="#d1d1d1" h={"100px"}></Box> */}
+      <Box bg="#F5F5F5" h={"100px"} ml={30}></Box>
     </Stack>
   );
 };
