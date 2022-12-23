@@ -5,13 +5,6 @@ import { Content } from "../../../types";
 export const WeekContent = (props: Content) => {
   const { week, id, type, link } = props;
   const router = useRouter();
-  const path =
-    type == "lecture"
-      ? router.asPath + `/${week}/${type}/${id}`
-      : type == "quiz"
-      ? router.asPath + `/${week}/${type}`
-      : link;
-
   const typeShow =
     type == "lecture" ? "강의영상" : type == "quiz" ? "퀴즈" : "메타버스";
   return (
@@ -19,7 +12,7 @@ export const WeekContent = (props: Content) => {
       direction={"row"}
       divider={<StackDivider />}
       p={4}
-      onClick={() => router.push(path)}
+      onClick={() => router.push(link)}
     >
       <Text w={"5%"} fontWeight={"bold"} textAlign={"center"}>
         {String(id).padStart(2, "0")}
