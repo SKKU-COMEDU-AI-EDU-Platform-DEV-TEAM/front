@@ -11,13 +11,16 @@ import {
   Stack,
   Text
 } from "@chakra-ui/react";
+import axios from "axios";
 import { useRouter } from "next/router";
 import { useEffect, useRef, useState } from "react";
+import { useRecoilState } from "recoil";
 import { checkIsValid } from "../../../config";
+import { userState } from "../../../recoil";
 
 export const Login = () => {
   const router = useRouter();
-
+  const [user, setUser] = useRecoilState(userState);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -31,13 +34,17 @@ export const Login = () => {
     setEmailInvalid(checkIsValid(emailReg, inputValue));
   };
 
-  const handleLoginOnClick = () => {
+  const handleLoginOnClick = async () => {
     if (checkIsValid(emailReg, email)) {
       return;
     }
     //login
-    console.log(isEmailInvalid);
-    router.push("/main");
+
+    const updatedUser = (
+      await axios.post("api/login", { email: email, pw: password })
+    ).data;
+    setUser(updatedUser);
+    router.push("/test");
   };
 
   return (
