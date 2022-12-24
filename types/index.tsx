@@ -8,6 +8,7 @@ export interface User {
 export interface Type {
   type: number;
 }
+
 export interface TypeDescription {
   type: string;
   description: string;
@@ -22,6 +23,7 @@ export interface LoginValue {
   id: string;
   password: string;
 }
+
 export interface LayoutDefaultProps {
   children?: React.ReactElement;
 }
@@ -73,4 +75,10 @@ export interface ChartProps {
     bottom: number;
     left: number;
   };
+}
+
+export interface Lecture {
+  title: string;
+  video: string;
+  pdf: string;
 }

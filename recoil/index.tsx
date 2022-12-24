@@ -1,7 +1,11 @@
 import { atom, selector } from "recoil";
 import { Point, User } from "../types";
 import { v1 } from "uuid";
-import { mockupPoint, mockupUser } from "./mockupData";
+import {
+  mockupPoint,
+  mockupTypeDescriptionList,
+  mockupUser
+} from "./mockupData";
 
 export const userState = atom<User>({
   key: `userState/${v1()}`,
@@ -17,26 +21,7 @@ export const typeSelector = selector({
   key: `typeSelector${v1()}`,
   get: ({ get }) => {
     const user = get(userState);
-    if (user.type == 1) {
-      return {
-        type: "learnerType1",
-        description:
-          "learner Type Description learner Type Description learner Type Description"
-      };
-    } else if (user.type == 2) {
-      return {
-        type: "learnerType2",
-        description:
-          "learner Type Description learner Type Description learner Type Description"
-      };
-    }
-    {
-      return {
-        type: "learnerType",
-        description:
-          "learner Type Description learner Type Description learner Type Description"
-      };
-    }
+    return mockupTypeDescriptionList[user.type - 1];
   }
 });
 
