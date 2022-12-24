@@ -23,14 +23,14 @@ export const TestingPage = () => {
       alert("답변하지 않은 문항이 있습니다!");
       return;
     }
-    const response = (await axios.post("../api/test", { result: value })).data;
+    const response = (await axios.post("/api/test", { result: value })).data;
     //error handling
     router.push("/test/end");
   }
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = (await axios.get("../api/test")).data;
+      const response = (await axios.get("/api/test")).data;
       setQList(response.questions);
       setIsLoading(false);
     };

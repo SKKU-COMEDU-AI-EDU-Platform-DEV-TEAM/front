@@ -18,7 +18,7 @@ import { userState } from "../recoil";
 import { checkIsValid } from "../config";
 import EnterLayout from "../components/EnterLayout";
 
-export const LoginPage = () => {
+export default function Home() {
   const router = useRouter();
   const [user, setUser] = useRecoilState(userState);
   const [email, setEmail] = useState("");
@@ -106,4 +106,4 @@ export const LoginPage = () => {
       </>
     </EnterLayout>
   );
-};
+}

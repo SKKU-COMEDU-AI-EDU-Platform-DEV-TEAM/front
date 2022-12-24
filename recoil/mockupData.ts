@@ -97,19 +97,36 @@ export const mockupWeekDataList: WeekData[] = [
 export const mockupLectureList: Lecture[][] = [
   [
     {
-      title: "강의 영상11",
+      title: "1주차 강의",
+      videoTitle: "강의 영상11",
       video: "video 링크11",
       pdf: "pdf 링크11"
     },
     {
-      title: "강의 영상12",
+      title: "1주차 강의",
+      videoTitle: "강의 영상12",
       video: "video 링크12",
       pdf: "pdf 링크12"
     }
   ],
   [
-    { title: "강의 영상21", video: "video 링크21", pdf: "pdf 링크21" },
-    { title: "강의 영상22", video: "video 링크22", pdf: "pdf 링크22" },
-    { title: "강의 영상23", video: "video 링크23", pdf: "pdf 링크23" }
+    {
+      title: "2주차 강의",
+      videoTitle: "강의 영상21",
+      video: "video 링크21",
+      pdf: "pdf 링크21"
+    },
+    {
+      title: "2주차  강의",
+      videoTitle: "강의 영상22",
+      video: "video 링크22",
+      pdf: "pdf 링크22"
+    },
+    {
+      title: "2주차 강의",
+      videoTitle: "강의 영상23",
+      video: "video 링크23",
+      pdf: "pdf 링크23"
+    }
   ]
 ];
