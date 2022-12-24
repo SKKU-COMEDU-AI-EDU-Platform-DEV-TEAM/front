@@ -96,14 +96,6 @@ export default function Header() {
                     >
                       학습유형검사 다시하기
                     </Button>
-                    <Button
-                      colorScheme="facebook"
-                      fontSize={13}
-                      variant="link"
-                      onClick={() => router.push("/profile")}
-                    >
-                      회원정보수정
-                    </Button>
                   </PopoverFooter>
                 </PopoverContent>
               </Portal>
