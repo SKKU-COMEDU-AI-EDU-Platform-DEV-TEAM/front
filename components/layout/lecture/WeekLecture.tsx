@@ -1,5 +1,7 @@
 import { Box, Progress, Stack, StackDivider, Text } from "@chakra-ui/react";
 import { useState } from "react";
+import { useRecoilValue } from "recoil";
+import { userState } from "../../../recoil";
 import { Id, WeekData } from "../../../types";
 import { WeekContent } from "./WeekContent";
 
@@ -11,6 +13,7 @@ export const WeekLecture = (props: Id & WeekData) => {
   const [isOnclick, setisOnclick] = useState(false);
   var progress: number = ((numVideoDone + numQuizDone) / numContents) * 100;
 
+  const user = useRecoilValue(userState);
   return (
     <Stack
       direction={"column"}
@@ -57,12 +60,14 @@ export const WeekLecture = (props: Id & WeekData) => {
             type={"quiz"}
             link={contents.quiz}
           ></WeekContent>
-          <WeekContent
-            week={id}
-            id={numContents + 1}
-            type={"metaverse"}
-            link={contents.metaverse}
-          ></WeekContent>
+          {user.type == 1 && (
+            <WeekContent
+              week={id}
+              id={numContents + 1}
+              type={"metaverse"}
+              link={contents.metaverse}
+            ></WeekContent>
+          )}
         </Box>
       )}
     </Stack>

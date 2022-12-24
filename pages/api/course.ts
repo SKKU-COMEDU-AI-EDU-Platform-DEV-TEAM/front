@@ -4,6 +4,7 @@ import { WeekData } from "../../types";
 
 type sendWeekData = {
   data: WeekData[];
+  metaverse: string;
 };
 export default function handler(
   req: NextApiRequest,
@@ -16,7 +17,7 @@ export default function handler(
         contents: {
           video: ["/videolink1", "/videolink2"],
           quiz: "/quizlink1",
-          metaverse: "/metaverselink1"
+          metaverse: "https://chakra-ui.com/docs/components/link/usage#"
         },
         isdone: { video: [1, 0], quiz: 1 }
       },
@@ -25,10 +26,11 @@ export default function handler(
         contents: {
           video: ["/videolink3", "/videolink4", "/videolink5"],
           quiz: "/quizlink2",
-          metaverse: "/metaverselink2"
+          metaverse: "https://chakra-ui.com/docs/components/link/usage#"
         },
         isdone: { video: [0, 1], quiz: 0 }
       }
-    ]
+    ],
+    metaverse: "https://chakra-ui.com/docs/components/link/usage#"
   });
 }
