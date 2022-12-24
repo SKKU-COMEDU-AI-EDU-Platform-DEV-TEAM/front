@@ -3,10 +3,10 @@ import { useRouter } from "next/router";
 import { useRecoilValue } from "recoil";
 import { userState } from "../../../recoil";
 import { User } from "../../../types";
-import Layout from "../../../components/layout/app/Layout";
-import CourseLayout from "../../../components/layout/course/CourseLayout";
+import Layout from "../../../components/Layout";
+import CourseLayout from "../../../components/CourseLayout";
 
-export default function LecturePage() {
+export default function QuizPage() {
   const router = useRouter();
   const { week, id } = router.query;
   console.log(week, id);

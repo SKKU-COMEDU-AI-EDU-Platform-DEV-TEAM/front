@@ -5,9 +5,9 @@ import { typeSelector, userState } from "../../recoil";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Type, TypeDescription, User } from "../../types";
-import TestLayout from "../../components/layout/test/TestLayout";
+import TestLayout from "../../components/TestLayout";
 
-export const TestEnd = () => {
+export const TestEndPage = () => {
   const router = useRouter();
 
   const [isLoading, setIsLoading] = useState<boolean>(true);

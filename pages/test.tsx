@@ -1,6 +1,6 @@
-import TestLayout from "../components/layout/test/TestLayout";
 import { Box, Button, Container } from "@chakra-ui/react";
 import { useRouter } from "next/router";
+import TestLayout from "../components/TestLayout";
 
 export default function TestPage() {
   const router = useRouter();

@@ -2,11 +2,10 @@ import { AxisBottom, AxisLeft } from "@visx/axis";
 import { curveNatural } from "@visx/curve";
 import { LinearGradient } from "@visx/gradient";
 import { scaleLinear } from "@visx/scale";
-import { AreaClosed, Bar, Circle, Line, LinePath } from "@visx/shape";
+import { AreaClosed, Circle, LinePath } from "@visx/shape";
 import { Group } from "@visx/group";
-
-import { LEVEL } from "../../../config";
-import { ChartProps, LineProps } from "../../../types";
+import { LEVEL } from "../../config";
+import { ChartProps, LineProps } from "../../types";
 
 export const AreaAxis = (props: ChartProps & LineProps) => {
   const { width, height, margin, data } = props;

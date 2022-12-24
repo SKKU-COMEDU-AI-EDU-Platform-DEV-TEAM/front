@@ -10,9 +10,9 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 import { useRouter } from "next/router";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
+import EnterLayout from "../components/EnterLayout";
 import { checkIsValid, emailReg, mbtiArr, pwReg } from "../config";
-import EnterLayout from "../components/layout/login/EnterLayout";
 
 export const SignupPage = () => {
   const router = useRouter();

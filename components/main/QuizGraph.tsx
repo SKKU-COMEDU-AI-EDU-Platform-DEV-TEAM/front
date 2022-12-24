@@ -1,6 +1,6 @@
 import { Box, Stack, Text } from "@chakra-ui/react";
 import { ScaleSVG } from "@visx/responsive";
-import { AREA_HEIGHT, AREA_MARGIN, AREA_WIDTH } from "../../../config";
+import { AREA_HEIGHT, AREA_MARGIN, AREA_WIDTH } from "../../config";
 import { AreaAxis, AreaMark } from "./AreaChart";
 import axios from "axios";
 import { useEffect, useState } from "react";

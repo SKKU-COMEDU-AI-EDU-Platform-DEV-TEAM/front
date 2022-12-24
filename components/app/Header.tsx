@@ -18,11 +18,11 @@ import {
 } from "@chakra-ui/react";
 import { GoPencil } from "react-icons/go";
 import { useRecoilValue } from "recoil";
-import { typeSelector, userState } from "../../../recoil";
 import { Avatar } from "@chakra-ui/react";
 import NextLink from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import { typeSelector, userState } from "../../recoil";
 
 export default function Header() {
   const user = useRecoilValue(userState);

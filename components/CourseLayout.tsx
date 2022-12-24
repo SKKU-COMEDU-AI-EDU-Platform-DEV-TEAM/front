@@ -3,7 +3,7 @@ import { ExternalLinkIcon } from "@chakra-ui/icons";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { Id, LayoutDefaultProps, CourseLayoutProps } from "../../../types";
+import { CourseLayoutProps, LayoutDefaultProps } from "../types";
 
 export default function CourseLayout({
   children,

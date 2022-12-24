@@ -1,9 +1,9 @@
 import { Avatar, Box, Button, Flex, Icon, Stack, Text } from "@chakra-ui/react";
 import { useRecoilValue } from "recoil";
-import { pointState, userState } from "../../../recoil";
+import { pointState, userState } from "../../recoil";
 import { GiRoundStar } from "react-icons/gi";
 import { TbDiamonds } from "react-icons/tb";
-import { Point, User } from "../../../types";
+import { Point, User } from "../../types";
 
 export const UserDescription = () => {
   const user = useRecoilValue<User>(userState);

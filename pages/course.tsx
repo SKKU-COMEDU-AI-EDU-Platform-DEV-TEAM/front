@@ -1,4 +1,3 @@
-import { ExternalLinkIcon } from "@chakra-ui/icons";
 import {
   Box,
   Progress,
@@ -13,8 +12,9 @@ import { Content, Id, LayoutDefaultProps, User, WeekData } from "../types";
 import { useRouter } from "next/router";
 import { useRecoilValue } from "recoil";
 import { userState } from "../recoil";
-import Layout from "../components/layout/app/Layout";
-import CourseLayout from "../components/layout/course/CourseLayout";
+import CourseLayout from "../components/CourseLayout";
+import Layout from "../components/Layout";
+import { ExternalLinkIcon } from "@chakra-ui/icons";
 
 export const WeekContent = ({
   children,
