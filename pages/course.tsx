@@ -9,8 +9,8 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
 import { Content, Id, LayoutDefaultProps, User, WeekData } from "../types";
+import { useRouter } from "next/router";
 import { useRecoilValue } from "recoil";
 import { userState } from "../recoil";
 import Layout from "../components/layout/app/Layout";
