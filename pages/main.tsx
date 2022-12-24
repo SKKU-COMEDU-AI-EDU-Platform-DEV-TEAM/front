@@ -1,12 +1,12 @@
 import { Box, Stack } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Layout from "../components/layout/app/Layout";
-import { UserDescription } from "../components/layout/main/UserDescription";
-import { TypeDescriptionComponent } from "../components/layout/main/TypeDescriptionComponent";
-import { CourseDescription } from "../components/layout/main/CourseDescription";
-import { QuizGraph } from "../components/layout/main/QuizGraph";
 import { Id, WeekData } from "../types";
+import { TypeDescriptionComponent } from "../components/main/TypeDescriptionComponent";
+import Layout from "../components/Layout";
+import { CourseDescription } from "../components/main/CourseDescription";
+import { QuizGraph } from "../components/main/QuizGraph";
+import { UserDescription } from "../components/main/UserDescription";
 
 export const Main = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);

@@ -2,8 +2,7 @@ import { Box, Button, Radio, RadioGroup, Stack, Text } from "@chakra-ui/react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import TestLayout from "../../components/layout/test/TestLayout";
-import { QuestionList } from "../../types";
+import TestLayout from "../../components/TestLayout";
 
 export const Testing = () => {
   const router = useRouter();

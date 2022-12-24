@@ -1,8 +1,8 @@
-import Layout from "../../../../components/layout/app/Layout";
+import Layout from "../../../../components/Layout";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useRecoilValue } from "recoil";
-import CourseLayout from "../../../../components/layout/course/CourseLayout";
+import CourseLayout from "../../../../components/CourseLayout";
 import { userState } from "../../../../recoil";
 import { User } from "../../../../types";
 

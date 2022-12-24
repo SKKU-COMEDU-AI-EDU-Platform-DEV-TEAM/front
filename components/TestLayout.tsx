@@ -1,5 +1,5 @@
 import { Box, Image, Stack, Text } from "@chakra-ui/react";
-import { LayoutDefaultProps } from "../../../types";
+import { LayoutDefaultProps } from "../types";
 
 export default function TestLayout({ children }: LayoutDefaultProps) {
   return (

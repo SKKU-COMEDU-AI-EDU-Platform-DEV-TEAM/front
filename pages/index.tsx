@@ -16,7 +16,7 @@ import { Component, useEffect, useRef, useState } from "react";
 import { useRecoilState } from "recoil";
 import { userState } from "../recoil";
 import { checkIsValid } from "../config";
-import EnterLayout from "../components/layout/login/EnterLayout";
+import EnterLayout from "../components/EnterLayout";
 
 export const LoginPage = () => {
   const router = useRouter();
