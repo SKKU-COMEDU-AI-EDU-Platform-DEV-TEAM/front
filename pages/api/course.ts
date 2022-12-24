@@ -15,8 +15,8 @@ export default function handler(
       {
         subject: "강의 제목1",
         contents: {
-          video: ["/videolink1", "/videolink2"],
-          quiz: "/quizlink1",
+          video: ["/course/1/lecture/1", "/course/1/lecture/2"],
+          quiz: "/course/1/quiz",
           metaverse: "https://chakra-ui.com/docs/components/link/usage#"
         },
         isdone: { video: [1, 0], quiz: 1 }
@@ -24,8 +24,25 @@ export default function handler(
       {
         subject: "강의 제목2",
         contents: {
-          video: ["/videolink3", "/videolink4", "/videolink5"],
-          quiz: "/quizlink2",
+          video: [
+            "/course/2/lecture/1",
+            "/course/2/lecture/2",
+            "/course/2/lecture/3"
+          ],
+          quiz: "/course/2/quiz",
+          metaverse: "https://chakra-ui.com/docs/components/link/usage#"
+        },
+        isdone: { video: [0, 1], quiz: 0 }
+      },
+      {
+        subject: "강의 제목3",
+        contents: {
+          video: [
+            "/course/3/lecture/1",
+            "/course/3/lecture/2",
+            "/course/3/lecture/3"
+          ],
+          quiz: "/course/3/quiz",
           metaverse: "https://chakra-ui.com/docs/components/link/usage#"
         },
         isdone: { video: [0, 1], quiz: 0 }
