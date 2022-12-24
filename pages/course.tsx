@@ -1,10 +1,10 @@
 import Layout from "../components/layout/app/Layout";
-import Lecture from "../components/layout/lecture/Lecture";
+import Course from "../components/layout/course/Course";
 
 export default function CoursePage() {
   return (
     <Layout>
-      <Lecture />
+      <Course />
     </Layout>
   );
 }

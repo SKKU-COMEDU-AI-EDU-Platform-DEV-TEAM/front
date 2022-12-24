@@ -26,6 +26,11 @@ export interface LayoutDefaultProps {
   children?: React.ReactElement;
 }
 
+export interface CourseLayoutProps {
+  title: string;
+  type: number;
+  metaverse: string;
+}
 export interface WeekData {
   subject: string;
   contents: {
@@ -50,7 +55,7 @@ export interface Id {
 
 export interface Content extends Id {
   week: number;
-  type: string;
+  contentType: number;
   link: string;
 }
 
