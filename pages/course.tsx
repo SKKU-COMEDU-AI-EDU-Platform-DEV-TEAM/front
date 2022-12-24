@@ -8,13 +8,13 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Content, Id, LayoutDefaultProps, User, WeekData } from "../types";
 import { useRouter } from "next/router";
 import { useRecoilValue } from "recoil";
-import { userState } from "../recoil";
-import CourseLayout from "../components/CourseLayout";
-import Layout from "../components/Layout";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
+import { userState } from "../recoil";
+import { Content, Id, LayoutDefaultProps, User, WeekData } from "../types";
+import Layout from "../components/Layout";
+import CourseLayout from "../components/CourseLayout";
 
 export const WeekContent = ({
   children,
@@ -108,7 +108,7 @@ export const Week = (props: Id & WeekData) => {
   );
 };
 
-export const CoursePage = () => {
+export default function CoursePage() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [weekData, setWeekData] = useState<(Id & WeekData)[]>([]);
   const [metaverse, setMetaverse] = useState<string>("");
@@ -146,4 +146,4 @@ export const CoursePage = () => {
       </CourseLayout>
     </Layout>
   );
-};
+}

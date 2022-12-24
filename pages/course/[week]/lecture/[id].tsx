@@ -4,33 +4,32 @@ import { useEffect, useState } from "react";
 import { useRecoilValue } from "recoil";
 import CourseLayout from "../../../../components/CourseLayout";
 import { userState } from "../../../../recoil";
-import { User } from "../../../../types";
-import { Box, Progress, Stack, StackDivider, Text } from "@chakra-ui/react";
+import { Lecture, User } from "../../../../types";
+import { Box, Text, Stack } from "@chakra-ui/react";
 import axios from "axios";
+import { Week } from "../../../course";
 
 export default function LecturePage() {
   const router = useRouter();
   const { week, id } = router.query;
-  console.log(week, id);
-
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [metaverse, setMetaverse] = useState<string>("");
+  const [content, setContent] = useState<Lecture>();
   const user = useRecoilValue<User>(userState);
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = (await axios.get(`/api/course/${week}/lecture/${id}`))
-        .data;
-      console.log(response);
+      const response = await fetch(`/api/lecture/${week}/${id}`);
+      response.json().then((data) => setContent(data));
       setIsLoading(false);
     };
     fetchData();
-  }, []);
+  }, [id]);
 
   return (
     <Layout>
       <CourseLayout
-        title={`${id}주차 | 강의 이름 `}
+        title={`${id}주차 | ${content?.title} `}
         type={user.type}
         metaverse={metaverse}
       >
@@ -41,11 +40,11 @@ export default function LecturePage() {
                 {String(id).padStart(2, "0")}.
               </Text>
               <Text fontWeight={"bold"} textAlign={"left"} pl={2}>
-                강의 영상 타이틀
+                {content?.videoTitle}
               </Text>
             </Stack>
           </Box>
-          <Box bg="#d9d9d9" borderRadius="3" h={100}></Box>
+          <Box bg="#d9d9d9" borderRadius="3" h={1000}></Box>
         </>
       </CourseLayout>
     </Layout>

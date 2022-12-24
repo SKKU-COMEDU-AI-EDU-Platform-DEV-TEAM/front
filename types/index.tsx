@@ -79,6 +79,7 @@ export interface ChartProps {
 
 export interface Lecture {
   title: string;
+  videoTitle: string;
   video: string;
   pdf: string;
 }
