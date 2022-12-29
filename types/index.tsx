@@ -83,3 +83,30 @@ export interface Lecture {
   video: string;
   pdf: string;
 }
+
+export namespace Types {
+  export type Data = {
+    id: number;
+    name: string;
+    size: number;
+    fillColor: string;
+  };
+
+  export type ForceData = {
+    size: number;
+  };
+}
+export interface IBubbleChartProps {
+  bubblesData: Types.Data[];
+  width: number;
+  height: number;
+  backgroundColor: string;
+  textFillColor: string;
+  minValue: number;
+  maxValue: number;
+  selectedCircle: (content: string) => void;
+}
+
+export interface IBubbleChartState {
+  data: Types.ForceData[];
+}

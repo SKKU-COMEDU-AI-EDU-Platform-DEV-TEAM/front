@@ -1,3 +1,4 @@
+import { schemeSet2, schemeTableau10 } from "d3-scale-chromatic";
 import {
   Lecture,
   Point,
@@ -5,6 +6,7 @@ import {
   ScoreList,
   Type,
   TypeDescription,
+  Types,
   User,
   WeekData
 } from "../types";
@@ -129,4 +131,27 @@ export const mockupLectureList: Lecture[][] = [
       pdf: "pdf 링크23"
     }
   ]
+];
+
+export const BubbleChartData: Types.Data[] = [
+  { id: 1, name: "EDA", size: 350, fillColor: schemeTableau10[0] },
+  { id: 2, name: "API", size: 100, fillColor: schemeTableau10[0] },
+  { id: 3, name: "결측치", size: 75, fillColor: schemeTableau10[1] },
+  { id: 4, name: "이상치", size: 150, fillColor: schemeTableau10[1] },
+  { id: 5, name: "정량 데이터", size: 150, fillColor: schemeTableau10[2] },
+  { id: 6, name: "정성 데이터", size: 125, fillColor: schemeTableau10[2] },
+  { id: 7, name: "회귀", size: 230, fillColor: schemeTableau10[3] },
+  { id: 8, name: "군집화", size: 70, fillColor: schemeTableau10[3] },
+  { id: 9, name: "분류", size: 70, fillColor: schemeSet2[1] },
+  { id: 10, name: "확률", size: 70, fillColor: schemeTableau10[4] },
+  { id: 11, name: "질적자료", size: 70, fillColor: schemeTableau10[4] },
+  { id: 12, name: "양적자료", size: 50, fillColor: schemeTableau10[6] },
+  { id: 13, name: "웹크롤링", size: 60, fillColor: schemeTableau10[5] },
+  { id: 14, name: "Python", size: 70, fillColor: schemeTableau10[5] },
+  { id: 15, name: "DIKW", size: 80, fillColor: schemeTableau10[7] },
+  { id: 16, name: "빅데이터", size: 90, fillColor: schemeTableau10[8] },
+  { id: 17, name: "numpy", size: 100, fillColor: schemeTableau10[8] },
+  { id: 18, name: "matplotlib", size: 150, fillColor: schemeTableau10[9] },
+  { id: 19, name: "Series", size: 150, fillColor: schemeTableau10[9] },
+  { id: 20, name: "DataFrame", size: 150, fillColor: schemeSet2[0] }
 ];
