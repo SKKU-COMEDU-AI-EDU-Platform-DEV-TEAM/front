@@ -31,7 +31,7 @@ export default function TestingPage() {
   useEffect(() => {
     const fetchData = async () => {
       const response = (await axios.get("/api/test")).data;
-      setQList(response.questions);
+      setQList(response.data);
       setIsLoading(false);
     };
     fetchData();

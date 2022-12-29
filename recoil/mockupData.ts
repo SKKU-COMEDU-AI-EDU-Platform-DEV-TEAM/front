@@ -1,15 +1,12 @@
-import { schemeSet2 } from "d3-scale-chromatic";
 import {
   Lecture,
   Point,
-  QuestionList,
   Quiz,
   ScoreList,
   Type,
   TypeDescription,
   Types,
-  User,
-  WeekData
+  User
 } from "../types";
 
 export const mockupUser: User = {
@@ -24,9 +21,7 @@ export const mockupPoint: Point = {
   expValue: 2380
 };
 
-export const mockupScore: ScoreList = {
-  score: [1, 5, 3, 1, 4, 1, 8, 5, 3, 2, 1, 6, 4, 1]
-};
+export const mockupScore: number[] = [1, 5, 3, 1, 4, 1, 8, 5, 3, 2, 1, 6, 4, 1];
 
 export const mockupType: Type = { type: 2 };
 
@@ -53,16 +48,14 @@ export const mockupTypeDescriptionList: TypeDescription[] = [
   }
 ];
 
-export const mockupQuestionList: QuestionList = {
-  questions: [
-    "학습 성향 분석 질문1",
-    "학습 성향 분석 질문2",
-    "학습 성향 분석 질문3",
-    "학습 성향 분석 질문4",
-    "학습 성향 분석 질문5",
-    "학습 성향 분석 질문6"
-  ]
-};
+export const mockupQuestionList: string[] = [
+  "학습 성향 분석 질문1",
+  "학습 성향 분석 질문2",
+  "학습 성향 분석 질문3",
+  "학습 성향 분석 질문4",
+  "학습 성향 분석 질문5",
+  "학습 성향 분석 질문6"
+];
 
 export const mockupLectureList: Lecture[] = [
   {
