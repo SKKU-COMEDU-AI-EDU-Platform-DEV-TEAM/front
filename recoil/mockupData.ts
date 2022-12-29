@@ -12,7 +12,7 @@ export const mockupUser: User = {
   userName: "userName",
   userId: 1,
   userEmail: "nimod1234@g.skku.edu",
-  type: 2
+  type: 3
 };
 
 export const mockupPoint: Point = {

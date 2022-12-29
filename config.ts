@@ -62,3 +62,17 @@ export const TypeDescriptionList: TypeDescription[] = [
       "learner Type Description learner Type Description learner Type Description"
   }
 ];
+export const arr: string[] = [
+  "회귀",
+  "결측치",
+  "이상치",
+  "군집화",
+  "분류",
+  "EDA",
+  "확률",
+  "빅데이터",
+  "Numpy",
+  "DataFrame",
+  "Pandas",
+  "웹크롤링"
+];
