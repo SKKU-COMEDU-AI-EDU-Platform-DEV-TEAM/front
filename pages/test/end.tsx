@@ -16,7 +16,7 @@ export default function TestEndPage() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = (await axios.get("../api/testResult")).data;
+      const response = (await axios.get("/api/testResult")).data;
       const updatedUser = {
         userName: user.userName,
         userId: user.userId,
