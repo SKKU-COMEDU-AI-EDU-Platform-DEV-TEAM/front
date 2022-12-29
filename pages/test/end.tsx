@@ -32,7 +32,13 @@ export default function TestEndPage() {
   return (
     <TestLayout>
       <>
-        <Container maxW="95%" fontSize={18} centerContent mt={10}>
+        <Container
+          maxW="95%"
+          fontSize={18}
+          centerContent
+          mt={10}
+          wordBreak="keep-all"
+        >
           설문 마무리 멘트 Lorem ipsum dolor sit amet consectetur adipisicing
           elit. Ut ipsa sit ad, possimus sunt quidem a omnis magni beatae! Quo,
           consequatur. Esse quidem quam in quia! Nisi pariatur sequi illum?
