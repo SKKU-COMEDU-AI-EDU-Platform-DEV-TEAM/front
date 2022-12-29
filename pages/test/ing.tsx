@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import TestLayout from "../../components/TestLayout";
 
-export const TestingPage = () => {
+export default function TestingPage() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [qList, setQList] = useState<string[]>([]);
@@ -84,4 +84,4 @@ export const TestingPage = () => {
       </>
     </TestLayout>
   );
-};
+}

@@ -7,11 +7,13 @@ import Layout from "../components/Layout";
 import { CourseDescription } from "../components/main/CourseDescription";
 import { QuizGraph } from "../components/main/QuizGraph";
 import { UserDescription } from "../components/main/UserDescription";
+import { useRecoilValue } from "recoil";
+import { userState } from "../recoil";
 
-export const MainPage = () => {
+export default function MainPage() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [weekData, setWeekData] = useState<(Id & WeekData)[]>([]);
-
+  const user = useRecoilValue(userState);
   useEffect(() => {
     const fetchData = async () => {
       const response = (await axios.get("api/course")).data;
@@ -33,8 +35,8 @@ export const MainPage = () => {
           <TypeDescriptionComponent />
           <CourseDescription />
         </Stack>
-        <QuizGraph />
+        {user.type == 1 && <QuizGraph />}
       </Stack>
     </Layout>
   );
-};
+}

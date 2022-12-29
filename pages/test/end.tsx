@@ -7,7 +7,7 @@ import axios from "axios";
 import { Type, TypeDescription, User } from "../../types";
 import TestLayout from "../../components/TestLayout";
 
-export const TestEndPage = () => {
+export default function TestEndPage() {
   const router = useRouter();
 
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -56,4 +56,4 @@ export const TestEndPage = () => {
       </>
     </TestLayout>
   );
-};
+}
