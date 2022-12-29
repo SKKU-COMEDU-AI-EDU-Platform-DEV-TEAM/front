@@ -1,10 +1,9 @@
 import {
   Lecture,
   Point,
+  QuizResultType,
   QuizType,
-  ScoreList,
   Type,
-  TypeDescriptionType,
   Types,
   User
 } from "../types";
@@ -90,6 +89,12 @@ export const mockupQuizList: QuizType[] = [
   }
 ];
 
+export const mockupQuizResult: QuizResultType = {
+  totalQuizNum: 4,
+  correctQuizNum: 3,
+  userAnswer: [0, 2, 3, 1],
+  correctAnswer: [2, 2, 3, 1]
+};
 export const mockupMetaverseList: string[] = [
   "https://app.gather.town/app/NJSpYMXBYuorIwIx/DIHYEOKGONG?spawnTok",
   "https://app.gather.town/app/NJSpYMXBYuorIwIx/DIHYEOKGONG?spawnTok",
