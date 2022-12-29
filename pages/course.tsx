@@ -48,19 +48,17 @@ export default function CoursePage() {
         type={user.type}
         metaverse={metaverse[0]}
       >
-        <>
-          <BubbleChart
-            bubblesData={data}
-            width={1400}
-            height={650}
-            textFillColor="black"
-            backgroundColor="#fff"
-            minValue={20}
-            maxValue={90}
-            metaverse={metaverse}
-            type={user.type}
-          />
-        </>
+        <BubbleChart
+          bubblesData={data}
+          width={1400}
+          height={650}
+          textFillColor="black"
+          backgroundColor="#fff"
+          minValue={20}
+          maxValue={90}
+          metaverse={metaverse}
+          type={user.type}
+        />
       </CourseLayout>
     </Layout>
   );

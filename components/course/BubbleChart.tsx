@@ -112,11 +112,10 @@ class BubbleChart extends React.Component<
                 }
               />
               <text
-                className="bubbleText"
                 fill={this.props.textFillColor}
                 textAnchor="middle"
                 fontSize={`${fontSize}px`}
-                fontWeight="normal"
+                fontWeight="bold"
               >
                 {props.bubblesData[index].name}
               </text>

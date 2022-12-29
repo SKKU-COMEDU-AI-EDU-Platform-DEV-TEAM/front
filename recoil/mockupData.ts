@@ -16,7 +16,7 @@ export const mockupUser: User = {
   userName: "userName",
   userId: 1,
   userEmail: "nimod1234@g.skku.edu",
-  type: 4
+  type: 1
 };
 
 export const mockupPoint: Point = {
@@ -64,41 +64,19 @@ export const mockupQuestionList: QuestionList = {
   ]
 };
 
-export const mockupLectureList: Lecture[][] = [
-  [
-    {
-      title: "1주차 강의",
-      videoTitle: "강의 영상11",
-      video: "video 링크11",
-      pdf: "pdf 링크11"
-    },
-    {
-      title: "1주차 강의",
-      videoTitle: "강의 영상12",
-      video: "video 링크12",
-      pdf: "pdf 링크12"
-    }
-  ],
-  [
-    {
-      title: "2주차 강의",
-      videoTitle: "강의 영상21",
-      video: "video 링크21",
-      pdf: "pdf 링크21"
-    },
-    {
-      title: "2주차  강의",
-      videoTitle: "강의 영상22",
-      video: "video 링크22",
-      pdf: "pdf 링크22"
-    },
-    {
-      title: "2주차 강의",
-      videoTitle: "강의 영상23",
-      video: "video 링크23",
-      pdf: "pdf 링크23"
-    }
-  ]
+export const mockupLectureList: Lecture[] = [
+  {
+    title: "1주차 강의",
+    videoTitle: "강의 영상11",
+    video: "video 링크11",
+    pdf: "pdf 링크11"
+  },
+  {
+    title: "1주차 강의",
+    videoTitle: "강의 영상12",
+    video: "video 링크12",
+    pdf: "pdf 링크12"
+  }
 ];
 
 export const mockupBubbleChartData: Types.Data[] = [

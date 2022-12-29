@@ -35,7 +35,7 @@ export default function MainPage() {
           <TypeDescriptionComponent />
           <CourseDescription />
         </Stack>
-        {user.type == 1 && <QuizGraph />}
+        {user.type == 2 && <QuizGraph />}
       </Stack>
     </Layout>
   );

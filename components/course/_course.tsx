@@ -89,7 +89,7 @@ export const Week = (props: Id & WeekData) => {
           >
             <>퀴즈</>
           </WeekContent>
-          {user.type == 1 && (
+          {user.type == 4 && (
             <WeekContent
               week={id}
               id={numContents + 1}
