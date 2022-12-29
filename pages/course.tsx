@@ -23,24 +23,19 @@ import {
 import Layout from "../components/Layout";
 import CourseLayout from "../components/CourseLayout";
 import BubbleChart from "../components/course/BubbleChart";
-import { BubbleChartData } from "../recoil/mockupData";
 
 export default function CoursePage() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [metaverse, setMetaverse] = useState<string>("");
+  const [metaverse, setMetaverse] = useState<string[]>([]);
   const router = useRouter();
   const user = useRecoilValue<User>(userState);
-
-  const [data, setData] = useState<Types.Data[]>(BubbleChartData);
-
-  const selectedKeyHandler = (key: string) => {
-    alert(key);
-  };
+  const [data, setData] = useState<Types.Data[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
       const response = (await axios.get("api/course")).data;
       setMetaverse(response.metaverse);
+      setData(response.data);
       setIsLoading(false);
     };
     fetchData();
@@ -51,7 +46,7 @@ export default function CoursePage() {
       <CourseLayout
         title="데이터분석기초 학습 콘텐츠"
         type={user.type}
-        metaverse={metaverse}
+        metaverse={metaverse[0]}
       >
         <>
           <BubbleChart
@@ -62,7 +57,8 @@ export default function CoursePage() {
             backgroundColor="#fff"
             minValue={20}
             maxValue={90}
-            selectedCircle={selectedKeyHandler}
+            metaverse={metaverse}
+            type={user.type}
           />
         </>
       </CourseLayout>

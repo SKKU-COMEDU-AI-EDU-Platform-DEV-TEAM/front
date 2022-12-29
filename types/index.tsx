@@ -89,7 +89,7 @@ export namespace Types {
     id: number;
     name: string;
     size: number;
-    fillColor: string;
+    week: number;
   };
 
   export type ForceData = {
@@ -104,9 +104,16 @@ export interface IBubbleChartProps {
   textFillColor: string;
   minValue: number;
   maxValue: number;
-  selectedCircle: (content: string) => void;
+  metaverse: string[];
+  type: number;
 }
 
 export interface IBubbleChartState {
   data: Types.ForceData[];
+}
+
+export interface Quiz {
+  question: string;
+  definition: string;
+  option: string[];
 }

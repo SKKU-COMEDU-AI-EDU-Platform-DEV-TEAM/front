@@ -3,8 +3,9 @@ import React from "react";
 import * as d3 from "d3";
 import { Simulation, SimulationNodeDatum } from "d3-force";
 import uuid from "react-uuid";
-import { Box } from "@chakra-ui/react";
+import { Box, Link } from "@chakra-ui/react";
 import { IBubbleChartProps, IBubbleChartState, Types } from "../../types";
+import { schemePaired, schemeTableau10 } from "d3";
 
 class BubbleChart extends React.Component<
   IBubbleChartProps,
@@ -13,7 +14,6 @@ class BubbleChart extends React.Component<
   public forceData: Types.ForceData[];
 
   private simulation: Simulation<SimulationNodeDatum, undefined> | undefined;
-
   constructor(props: IBubbleChartProps) {
     super(props);
     this.state = {
@@ -84,9 +84,15 @@ class BubbleChart extends React.Component<
       const { props } = this;
       const fontSize =
         this.radiusScale((item as unknown as Types.ForceData).size) / 4;
-      const content =
-        props.bubblesData.length > index ? props.bubblesData[index].name : "";
-
+      const week = props.bubblesData[index].week;
+      const link =
+        props.type == 1
+          ? `/course/${week}/lecture/1`
+          : props.type == 2
+          ? `/course/${week}/quiz`
+          : props.type == 3
+          ? `/course/${week}/game`
+          : props.metaverse[week];
       return (
         <g
           key={`g-${uuid()}`}
@@ -94,26 +100,28 @@ class BubbleChart extends React.Component<
             props.height / 2 + item.y
           })`}
         >
-          <circle
-            style={{ cursor: "pointer" }}
-            onClick={() => {
-              this.props.selectedCircle(content);
-            }}
-            r={this.radiusScale((item as unknown as Types.ForceData).size)}
-            fill={props.bubblesData[index].fillColor}
-          />
-          <text
-            onClick={() => {
-              this.props.selectedCircle(content);
-            }}
-            className="bubbleText"
-            fill={this.props.textFillColor}
-            textAnchor="middle"
-            fontSize={`${fontSize}px`}
-            fontWeight="normal"
-          >
-            {content}
-          </text>
+          <Link href={link} isExternal={props.type == 4}>
+            <>
+              <circle
+                style={{ cursor: "pointer" }}
+                r={this.radiusScale((item as unknown as Types.ForceData).size)}
+                fill={
+                  week < 11
+                    ? schemePaired[week - 1]
+                    : schemeTableau10[week - 11]
+                }
+              />
+              <text
+                className="bubbleText"
+                fill={this.props.textFillColor}
+                textAnchor="middle"
+                fontSize={`${fontSize}px`}
+                fontWeight="normal"
+              >
+                {props.bubblesData[index].name}
+              </text>
+            </>
+          </Link>
         </g>
       );
     });
