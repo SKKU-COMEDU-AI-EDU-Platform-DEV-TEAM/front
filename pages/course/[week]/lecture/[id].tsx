@@ -54,8 +54,6 @@ export default function LecturePage() {
             maxH="fit-content"
             p="5%"
             spacing={20}
-            pl="15%"
-            pr="15%"
             divider={<StackDivider borderColor="gray.900" />}
           >
             <AspectRatio ratio={16 / 9}>

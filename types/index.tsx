@@ -14,6 +14,10 @@ export interface TypeDescription {
   description: string;
 }
 
+export interface TypeCardType extends TypeDescription {
+  link: string;
+}
+
 export interface Point {
   level: number;
   expValue: number;
