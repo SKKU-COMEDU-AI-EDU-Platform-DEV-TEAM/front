@@ -54,8 +54,8 @@ export default function CoursePage() {
           height={650}
           textFillColor="black"
           backgroundColor="#fff"
-          minValue={20}
-          maxValue={90}
+          minValue={10}
+          maxValue={60}
           metaverse={metaverse}
           type={user.type}
         />
