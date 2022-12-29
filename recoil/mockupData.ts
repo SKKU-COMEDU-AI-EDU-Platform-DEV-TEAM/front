@@ -66,13 +66,13 @@ export const mockupQuestionList: QuestionList = {
 
 export const mockupLectureList: Lecture[] = [
   {
-    title: "1주차 강의",
+    title: "강의 이름",
     videoTitle: "강의 영상11",
-    video: "video 링크11",
-    pdf: "pdf 링크11"
+    video: "/video.mp4",
+    pdf: "/pdf.pdf"
   },
   {
-    title: "1주차 강의",
+    title: "강의 이름",
     videoTitle: "강의 영상12",
     video: "video 링크12",
     pdf: "pdf 링크12"

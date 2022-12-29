@@ -5,7 +5,7 @@ import { useRecoilValue } from "recoil";
 import CourseLayout from "../../../../components/CourseLayout";
 import { userState } from "../../../../recoil";
 import { Lecture, User } from "../../../../types";
-import { Box, Text, Stack } from "@chakra-ui/react";
+import { Box, Text, Stack, AspectRatio, StackDivider } from "@chakra-ui/react";
 import axios from "axios";
 
 export default function LecturePage() {
@@ -33,7 +33,7 @@ export default function LecturePage() {
   return (
     <Layout>
       <CourseLayout
-        title={`${id}주차 | ${content?.title} `}
+        title={`${week}주차 | ${content?.title} `}
         type={user.type}
         metaverse={""}
       >
@@ -48,7 +48,27 @@ export default function LecturePage() {
               </Text>
             </Stack>
           </Box>
-          <Box bg="#d9d9d9" borderRadius="3" h={1000}></Box>
+          <Stack
+            bg="#d9d9d9"
+            borderRadius="3"
+            maxH="fit-content"
+            p="5%"
+            spacing={20}
+            pl="15%"
+            pr="15%"
+            divider={<StackDivider borderColor="gray.900" />}
+          >
+            <AspectRatio ratio={16 / 9}>
+              <iframe
+                title={content?.title}
+                src={content?.video}
+                allowFullScreen
+              />
+            </AspectRatio>
+            <AspectRatio ratio={16 / 9}>
+              <embed src={content?.pdf} type="application/pdf" />
+            </AspectRatio>
+          </Stack>
         </>
       </CourseLayout>
     </Layout>
