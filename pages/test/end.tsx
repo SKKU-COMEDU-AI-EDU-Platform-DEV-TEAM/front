@@ -4,7 +4,7 @@ import { useRecoilState, useRecoilValue } from "recoil";
 import { typeSelector, userState } from "../../recoil";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Type, TypeDescription, User } from "../../types";
+import { Type, TypeDescriptionType, User } from "../../types";
 import TestLayout from "../../components/TestLayout";
 
 export default function TestEndPage() {
@@ -12,11 +12,11 @@ export default function TestEndPage() {
 
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [user, setUser] = useRecoilState<User>(userState);
-  const type = useRecoilValue<TypeDescription>(typeSelector);
+  const type = useRecoilValue<TypeDescriptionType>(typeSelector);
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = (await axios.get("../api/testResult")).data;
+      const response = (await axios.get("/api/testResult")).data;
       const updatedUser = {
         userName: user.userName,
         userId: user.userId,
