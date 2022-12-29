@@ -55,7 +55,7 @@ export default function QuizPage() {
             <Button
               height="40px"
               width="20%"
-              borderRadius={"2rem"}
+              borderRadius={"2xl"}
               bgColor="rgb(144, 187, 144)"
               onClick={handleOnClick}
             >
