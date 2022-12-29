@@ -36,7 +36,7 @@ export default function QuizPage() {
     <Layout>
       <CourseLayout title={`${week}주차 퀴즈`} type={user.type} metaverse={""}>
         <>
-          <Accordion>
+          <Accordion defaultIndex={[0]} allowMultiple>
             <>
               {quiz.map(function (q, i) {
                 return (
