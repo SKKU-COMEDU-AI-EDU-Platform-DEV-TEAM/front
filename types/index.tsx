@@ -9,12 +9,12 @@ export interface Type {
   type: number;
 }
 
-export interface TypeDescription {
+export interface TypeDescriptionType {
   type: string;
   description: string;
 }
 
-export interface TypeCardType extends TypeDescription {
+export interface TypeCardType extends TypeDescriptionType {
   link: string;
 }
 
@@ -112,7 +112,7 @@ export interface IBubbleChartState {
   data: Types.ForceData[];
 }
 
-export interface Quiz {
+export interface QuizType {
   question: string;
   definition: string;
   option: string[];

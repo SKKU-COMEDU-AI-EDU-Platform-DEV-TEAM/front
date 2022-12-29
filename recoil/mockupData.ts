@@ -1,10 +1,10 @@
 import {
   Lecture,
   Point,
-  Quiz,
+  QuizType,
   ScoreList,
   Type,
-  TypeDescription,
+  TypeDescriptionType,
   Types,
   User
 } from "../types";
@@ -72,7 +72,7 @@ export const mockupBubbleChartData: Types.Data[] = [
   { id: 20, name: "DataFrame", size: 150, week: 11 }
 ];
 
-export const mockupQuizList: Quiz[] = [
+export const mockupQuizList: QuizType[] = [
   {
     question: "퀴즈 질문1",
     definition: "관련 정의1",

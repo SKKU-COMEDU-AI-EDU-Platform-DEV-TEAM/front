@@ -1,15 +1,5 @@
-import {
-  Box,
-  Card,
-  CardHeader,
-  Heading,
-  SimpleGrid,
-  Stack,
-  Text
-} from "@chakra-ui/react";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { TypeDescriptionComponent } from "../components/main/TypeDescriptionComponent";
+import { SimpleGrid, Stack, Text } from "@chakra-ui/react";
+import { TypeDescription } from "../components/main/TypeDescription";
 import Layout from "../components/Layout";
 import { CourseDescription } from "../components/main/CourseDescription";
 import { QuizGraph } from "../components/main/QuizGraph";
@@ -31,7 +21,7 @@ export default function MainPage() {
       >
         <Stack direction={"row"} justifyContent="space-between" pt={30}>
           <UserDescription />
-          <TypeDescriptionComponent />
+          <TypeDescription />
           <CourseDescription />
         </Stack>
         {user.type == 2 && <QuizGraph />}
