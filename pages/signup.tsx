@@ -3,7 +3,6 @@ import {
   FormControl,
   FormErrorMessage,
   FormLabel,
-  Image,
   Input,
   Select,
   Stack
@@ -14,7 +13,7 @@ import { useState } from "react";
 import EnterLayout from "../components/EnterLayout";
 import { checkIsValid, emailReg, mbtiArr, pwReg } from "../config";
 
-export const SignupPage = () => {
+export default function SignupPage() {
   const router = useRouter();
 
   const [email, setEmail] = useState<string>("");
@@ -144,4 +143,4 @@ export const SignupPage = () => {
       </>
     </EnterLayout>
   );
-};
+}
