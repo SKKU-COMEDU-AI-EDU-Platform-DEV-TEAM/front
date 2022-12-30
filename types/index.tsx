@@ -1,8 +1,7 @@
-export interface User {
+export interface User extends Type {
   userName: string;
   userId: number;
   userEmail: string;
-  type: number;
 }
 
 export interface Type {
@@ -14,10 +13,6 @@ export interface TypeDescriptionType {
   description: string;
 }
 
-export interface TypeCardType extends TypeDescriptionType {
-  link: string;
-}
-
 export interface Point {
   level: number;
   expValue: number;
@@ -27,15 +22,8 @@ export interface LoginValue {
   id: string;
   password: string;
 }
-
 export interface LayoutDefaultProps {
   children?: React.ReactElement;
-}
-
-export interface CourseLayoutProps {
-  title: string;
-  type: number;
-  metaverse: string;
 }
 export interface WeekData {
   subject: string;
@@ -47,10 +35,6 @@ export interface WeekData {
   isdone: { video: number[]; quiz: number };
 }
 
-export interface ScoreList {
-  score: number[];
-}
-
 export interface Id {
   id: number;
 }
@@ -59,22 +43,6 @@ export interface Content extends Id {
   week: number;
   contentType: number;
   link: string;
-}
-
-export interface LineProps {
-  data: number[];
-  color: string;
-}
-
-export interface ChartProps {
-  width: number;
-  height: number;
-  margin: {
-    top: number;
-    right: number;
-    bottom: number;
-    left: number;
-  };
 }
 
 export interface Lecture {
@@ -96,32 +64,12 @@ export namespace Types {
     size: number;
   };
 }
-export interface IBubbleChartProps {
-  bubblesData: Types.Data[];
-  width: number;
-  height: number;
-  backgroundColor: string;
-  textFillColor: string;
-  minValue: number;
-  maxValue: number;
-  metaverse: string[];
-  type: number;
-}
-
-export interface IBubbleChartState {
-  data: Types.ForceData[];
-}
-
 export interface QuizType {
   question: string;
   definition: string;
   option: string[];
 }
 
-export interface QuizAnswer {
-  userAnswer: number;
-  correctAnswer: number;
-}
 export interface QuizResultType {
   totalQuizNum: number;
   correctQuizNum: number;
