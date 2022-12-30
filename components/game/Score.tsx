@@ -1,12 +1,9 @@
-import { Box, Button, Text } from "@chakra-ui/react";
+import { Box, Button, Icon, Img, Text } from "@chakra-ui/react";
 import { useRecoilValue } from "recoil";
 import { bestScoreState, moveState } from "../../recoil";
+import { GiSoundOff } from "react-icons/gi";
 
-type ScoreProps = {
-  bestScore: number;
-};
-
-export default function Score(props: ScoreProps) {
+export default function Score() {
   const moves = useRecoilValue<number>(moveState);
   const bestScore = useRecoilValue<number>(bestScoreState);
   return (
@@ -17,32 +14,17 @@ export default function Score(props: ScoreProps) {
       alignItems="center"
       fontSize={"xl"}
       color="#545454"
-      w="700px"
-      m="5%"
+      w="600px"
+      m="1%"
       gap={"10%"}
     >
       <Box display={"flex"} justifyContent="space-between" w="700px">
         <Text fontWeight={"bold"}>Moves: {moves}</Text>
         {bestScore != Number.MAX_SAFE_INTEGER && (
-          <Text fontWeight={"bold"}>Best score: {props.bestScore}</Text>
+          <Text fontWeight={"bold"}>Best score: {bestScore}</Text>
         )}
       </Box>
-      <Box>
-        <Button
-          bgColor={"#545454"}
-          color="white"
-          fontSize={"md"}
-          w="100px"
-          h="40px"
-          borderRadius={"4px"}
-          border="none"
-          onClick={() => {
-            window.location.reload();
-          }}
-        >
-          RESTART
-        </Button>
-      </Box>
+      <Img w={"100px"} src={"/player.png"} borderRadius="full" />
     </Box>
   );
 }

@@ -22,8 +22,6 @@ export default function GamePage() {
   const router = useRouter();
   const { week } = router.query;
   const user = useRecoilValue<User>(userState);
-  const [moves, setMoves] = useRecoilState<number>(moveState);
-  const [bestScore, setBestScore] = useRecoilState<number>(bestScoreState);
 
   return (
     <Layout>
@@ -33,8 +31,8 @@ export default function GamePage() {
         metaverse={""}
       >
         <VStack>
-          <Score bestScore={bestScore} />
-          <Board setMoves={setMoves} cardIds={cardIds} />
+          <Score />
+          <Board cardIds={cardIds} />
         </VStack>
       </CourseLayout>
     </Layout>

@@ -27,16 +27,34 @@ function Card(props: CardProps) {
       cursor={"pointer"}
       onClick={handleClick}
     >
-      <Box w="100%" h="100%" position={"absolute"} className="card-face">
-        <Img w={"100%"} h={"100%"} src={"/SKKU.png"} borderRadius="4px" />
+      <Box
+        w="100%"
+        h="100%"
+        position={"absolute"}
+        className="card-face"
+        borderWidth={"8px"}
+        borderColor="green"
+        borderRadius="1rem"
+      >
+        <Img
+          p={1}
+          w={"100%"}
+          h={"100%"}
+          src={"/Emblem.jpg"}
+          overflow="hidden"
+        />
       </Box>
       <Box
         w="100%"
         h="100%"
         position={"absolute"}
         className="card-face card-back-face"
+        textAlign={"center"}
+        pt={props.id < 3 ? 12 : 10}
+        fontWeight={"bold"}
+        fontSize={props.id < 5 ? 20 : 15}
       >
-        <Container>{props.word}</Container>
+        {props.word}
       </Box>
     </Box>
   );

@@ -1,12 +1,14 @@
-import { Box } from "@chakra-ui/react";
+//https://www.youtube.com/watch?v=G0pIKrOVTEI
+import { Box, Button, Icon, Img } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
 import { useRecoilState } from "recoil";
 import { arr } from "../../config";
 import { bestScoreState, moveState } from "../../recoil";
 import Card from "./Card";
+import { AiTwotoneSound } from "react-icons/ai";
+import { MdMusicOff } from "react-icons/md";
 
 type BoardProps = {
-  setMoves: React.Dispatch<React.SetStateAction<number>>;
   cardIds: Array<number>;
 };
 
@@ -85,7 +87,7 @@ function Board(props: BoardProps) {
   const checkIsInactive = (id: number) => {
     return clearedCards.includes(id);
   };
-
+  console.log(props.cardIds);
   return (
     <Box
       display={"grid"}
@@ -93,14 +95,14 @@ function Board(props: BoardProps) {
       gridTemplateColumns={"repeat(4,1fr)"}
       gridTemplateRows={"repeat(3,1fr)"}
       gap="10px"
-      w="700px"
+      w="600px"
       h="500px"
     >
       {props.cardIds.map((i) => {
         return (
           <Card
             key={`card${i}`}
-            word={arr[i % 6]}
+            word={arr[i - 1]}
             id={i}
             isDisabled={shouldDisableAllCards}
             isInactive={checkIsInactive(i)}
@@ -109,6 +111,34 @@ function Board(props: BoardProps) {
           />
         );
       })}
+      <Box />
+      <Box />
+      <Button
+        bgColor={"green"}
+        color="white"
+        fontSize={"md"}
+        w="100px"
+        h="40px"
+        borderRadius={"4px"}
+        border="none"
+        onClick={() => {
+          setClearedCards([]);
+          setMoves(0);
+        }}
+        mt={10}
+      >
+        RESTART
+      </Button>
+      <Icon
+        mt={9}
+        p={1}
+        as={MdMusicOff}
+        fontSize={"5xl"}
+        color="green"
+        borderWidth={"3px"}
+        borderColor="green"
+        borderRadius={"2rem"}
+      />
     </Box>
   );
 }
