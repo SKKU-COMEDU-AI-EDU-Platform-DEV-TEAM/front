@@ -2,32 +2,33 @@ import { Box, Button, Container } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { typeSelector, userState } from "../../recoil";
-import { useEffect, useState } from "react";
 import axios from "axios";
 import { TypeDescriptionType, User } from "../../types";
 import TestLayout from "../../components/TestLayout";
+import { useQuery } from "react-query";
 
 export default function TestEndPage() {
   const router = useRouter();
 
-  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [user, setUser] = useRecoilState<User>(userState);
   const type = useRecoilValue<TypeDescriptionType>(typeSelector);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = (await axios.get("/api/testResult")).data;
-      const updatedUser = {
-        userName: user.userName,
-        userId: user.userId,
-        userEmail: user.userEmail,
-        type: response.type
-      };
-      setUser(updatedUser);
-      setIsLoading(false);
-    };
-    fetchData();
-  }, []);
+  const getTestResultData = async () => {
+    const { data } = await axios.get("/api/testResult");
+    return data;
+  };
+  const { isLoading, data, isError } = useQuery(
+    "testResult",
+    getTestResultData,
+    {
+      onSuccess: () => {
+        setUser({
+          ...user,
+          type: data.data
+        });
+      }
+    }
+  );
 
   return (
     <TestLayout>

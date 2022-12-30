@@ -1,45 +1,29 @@
-import {
-  Box,
-  Progress,
-  Stack,
-  StackDivider,
-  Text,
-  Link,
-  Button
-} from "@chakra-ui/react";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/router";
 import { useRecoilValue } from "recoil";
 import { userState } from "../recoil";
-import {
-  Content,
-  Id,
-  LayoutDefaultProps,
-  Types,
-  User,
-  WeekData
-} from "../types";
+import { Types, User } from "../types";
 import Layout from "../components/Layout";
 import CourseLayout from "../components/CourseLayout";
 import BubbleChart from "../components/course/BubbleChart";
+import { useQuery } from "react-query";
 
 export default function CoursePage() {
-  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [metaverse, setMetaverse] = useState<string[]>([]);
-  const router = useRouter();
   const user = useRecoilValue<User>(userState);
-  const [data, setData] = useState<Types.Data[]>([]);
+  const [courseData, setData] = useState<Types.Data[]>([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = (await axios.get("api/course")).data;
-      setMetaverse(response.metaverse);
-      setData(response.data);
-      setIsLoading(false);
-    };
-    fetchData();
-  }, []);
+  const getCourseData = async () => {
+    const { data } = await axios.get("api/course");
+    return data;
+  };
+  const { isLoading, data, isError } = useQuery("course", getCourseData, {
+    onSuccess: () => {
+      setMetaverse(data.metaverse);
+      setData(data.data);
+    }
+  });
 
   return (
     <Layout>
@@ -49,7 +33,7 @@ export default function CoursePage() {
         metaverse={metaverse[0]}
       >
         <BubbleChart
-          bubblesData={data}
+          bubblesData={courseData}
           width={1400}
           height={700}
           textFillColor="black"

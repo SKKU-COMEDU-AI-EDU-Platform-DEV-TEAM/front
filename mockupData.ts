@@ -22,8 +22,6 @@ export const mockupPoint: Point = {
 
 export const mockupScore: number[] = [1, 5, 3, 1, 4, 1, 8, 5, 3, 2, 1, 6, 4, 1];
 
-export const mockupType: Type = { type: 2 };
-
 export const mockupQuestionList: string[] = [
   "학습 성향 분석 질문1",
   "학습 성향 분석 질문2",

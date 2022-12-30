@@ -7,28 +7,23 @@ import { userState } from "../../../../recoil";
 import { Lecture, User } from "../../../../types";
 import { Box, Text, Stack, AspectRatio, StackDivider } from "@chakra-ui/react";
 import axios from "axios";
+import { useQuery } from "react-query";
 
 export default function LecturePage() {
   const router = useRouter();
   const { week, id } = router.query;
-  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [content, setContent] = useState<Lecture>();
   const user = useRecoilValue<User>(userState);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = (
-        await axios.post(`/api/lecture/${week}/${id}`, {
-          headers: {
-            "Content-Type": `application/json`
-          }
-        })
-      ).data;
-      setContent(response);
-      setIsLoading(false);
-    };
-    fetchData();
-  }, []);
+  const getLectureData = async () => {
+    const { data } = await axios.get(`/api/lecture/${week}/${id}`);
+    return data;
+  };
+  const { isLoading, data, isError } = useQuery("lecture", getLectureData, {
+    onSuccess: () => {
+      setContent(data);
+    }
+  });
 
   return (
     <Layout>

@@ -9,24 +9,29 @@ import axios from "axios";
 import { Accordion, Box, Button, Text } from "@chakra-ui/react";
 import QuizResult from "../../../../components/course/QuizResult";
 import { mockupQuizResult } from "../../../../mockupData";
+import { useQuery } from "react-query";
 
 export default function QuizResultPage() {
   const router = useRouter();
   const { week } = router.query;
   const [quiz, setQuiz] = useState<QuizType[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
   const user = useRecoilValue<User>(userState);
   const [result, setResult] = useState<QuizResultType>(mockupQuizResult);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = (await axios.get(`/api/quiz/${week}/result`)).data;
-      setQuiz(response.data);
-      setResult(response.result);
-      setIsLoading(false);
-    };
-    fetchData();
-  }, []);
+  const getQuizResultData = async () => {
+    const { data } = await axios.get(`/api/quiz/${week}`);
+    return data;
+  };
+  const { isLoading, data, isError } = useQuery(
+    "quizResult",
+    getQuizResultData,
+    {
+      onSuccess: () => {
+        setQuiz(data.data);
+        setResult(data.result);
+      }
+    }
+  );
 
   return (
     <Layout>

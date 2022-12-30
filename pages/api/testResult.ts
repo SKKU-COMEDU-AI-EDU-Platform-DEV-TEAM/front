@@ -1,11 +1,12 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
-import { mockupType } from "../../mockupData";
-import { Type } from "../../types";
 
+type sendType = {
+  data: number;
+};
 export default function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Type>
+  res: NextApiResponse<sendType>
 ) {
-  return res.send(mockupType);
+  return res.send({ data: 1 });
 }
